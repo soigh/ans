@@ -1,0 +1,2 @@
+[node]
+nodesoi ansible_host=10.19.11.217 ansible_port=22 ansible_connection=ssh ansible_user=vagrant ansible_password=vagrant

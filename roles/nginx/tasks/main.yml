@@ -1,0 +1,23 @@
+---
+# tasks file for nginx
+- name: Installing Additional Repo
+  become: yes
+  yum: name=epel-release.noarch
+
+- name: Installing Nginx
+  become: yes
+  yum: name=nginx
+
+- name: Enabling Nginx
+  become: yes
+  shell: systemctl enable nginx
+
+- name: Starting Nginx
+  become: yes
+  shell: systemctl start nginx
+
+- name: Template Conf File
+  template: src=template.j2 dest=/etc/nginx/nginx.conf
+  become: yes
+  notify:
+  - Restart Nginx
